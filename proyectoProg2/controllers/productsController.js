@@ -1,9 +1,21 @@
 const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 
-const productsControllers = {
+const productsController = {
     products: function(req, res){
-    return res.render('index')
+        let filtrado = {
+            include: [
+              {association: "user"}],
+            order:[["createdAt", "DESC"]],
+          };
+
+        products.findAll(filtrado)
+        .then(function(results){
+            return res.render('homePage', {products: results});
+        })
+        .catch(function(e) {
+            return console.log(e);
+        });
 },
 
 productDetail: function(req, res){
@@ -19,4 +31,4 @@ search: function(req, res){
 }
 };
 
-module.exports = productsControllers;
+module.exports = productsController;

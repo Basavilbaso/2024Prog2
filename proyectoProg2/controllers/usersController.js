@@ -1,7 +1,7 @@
 const db = require("../database/models");
 const bcrypt = require("bcryptjs");
 
-const usersControllers = {
+const usersController = {
     showregister: function(req, res){
         return res.render('register');
     },
@@ -12,4 +12,4 @@ const usersControllers = {
 
 };
 
-module.exports = usersControllers;
+module.exports = usersController;
