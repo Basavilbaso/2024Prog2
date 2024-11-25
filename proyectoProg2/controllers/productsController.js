@@ -1,5 +1,8 @@
-const db = require("../database/models");
-const bcrypt = require("bcryptjs");
+const db = require("../databse/models");
+const bcryptjs = require("bcryptjs");
+const op = db.Sequelize.Op;
+const products = db.Product;
+
 
 const productsController = {
     products: function(req, res){
